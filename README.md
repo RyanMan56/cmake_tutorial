@@ -16,3 +16,8 @@ These are some notes relevant for specific steps. Some notes may also apply to t
 ### step2
 
 1. To build Tutorial with the USE_MYMATH flag disabled, run from the `step2_build` directory: `cmake ../step2 -DUSE_MYMATH=OFF`. You may have to delete your `step2_build/CMakeCache.txt` file
+
+## Misc notes
+
+1. The tutorial itself is quite poorly maintained, with some references to removing code that we never added in the first place. Seems like the tutorial has been updated over time, but not consistently
+2. Tutorial was quite painful to follow unless you're looking at the provided source files. Otherwise there's no way of knowing where in a file a certain line should be added
