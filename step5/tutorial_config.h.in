@@ -1,0 +1,5 @@
+// This file is used as input for CMake to create the tutorial_config.h file for us,
+// swapping out @Tutorial_VERSION_MAJOR@ and @Tutorial_VERSION_MINOR@ for the associated CMake variables
+// created when we specified project(Tutorial VERSION 1.0) in CMakeLists.txt
+#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
