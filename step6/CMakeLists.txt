@@ -35,7 +35,7 @@ install(TARGETS Tutorial DESTINATION bin)
 # Install header file to the include directory
 install(FILES "${PROJECT_BINARY_DIR}/tutorial_config.h" DESTINATION include)
 
-enable_testing()
+include(CTest)
 
 add_test(NAME Runs COMMAND Tutorial 25)
 

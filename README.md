@@ -20,6 +20,11 @@ These are some notes relevant for specific steps. Some notes may also apply to t
 ### step5
 
 1. To demo this without messing with permissions create a new folder called `step5_install` but do not cd into it. Instead cd into `step5_build` and run `cmake --install . --prefix "../step5_install"`
+2. To demo the tests cd into the `step5_build` directory, rebuild, and run `cmake -N` to list the tests that will run, and then run `ctest -VV` to run the tests with verbose output
+
+### step6
+
+1. To create a simple online test dashboard navigate to the build directory and run `ctest [-VV] -D Experimental` (not sure how well this works, there are some undocumented dependencies that are needed in the tutorial and I didn't care enough about this step to get them figured out and set up, as I'd potentially use a different testing solution for my own projects)
 
 ## Misc notes
 
