@@ -26,6 +26,11 @@ These are some notes relevant for specific steps. Some notes may also apply to t
 
 1. To create a simple online test dashboard navigate to the build directory and run `ctest [-VV] -D Experimental` (not sure how well this works, there are some undocumented dependencies that are needed in the tutorial and I didn't care enough about this step to get them figured out and set up, as I'd potentially use a different testing solution for my own projects)
 
+### step10
+
+1. cd into the `step9_build` directory and build the project as usual. Then run `cpack` to build a binary distribution.
+2. Run the installer in the build directory, then run the installed executable and verify it works
+
 ## Misc notes
 
 1. The tutorial itself is quite poorly maintained, with some references to removing code that we never added in the first place. Seems like the tutorial has been updated over time, but not consistently
