@@ -2,7 +2,11 @@ add_library(MathFunctions MathFunctions.cxx)
 
 # Ensure anybody linking to MathFunctions needs to include the current source directory, while MathFunctions itself doesn't
 # (CMAKE_CURRENT_SOURCE_DIR is the path to the source directory currently being processed)
-target_include_directories(MathFunctions INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(MathFunctions
+  INTERFACE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> # When building, use the source directory
+  $<INSTALL_INTERFACE:include> # When installing, use the "include" directory relative to the installation prefix, e.g. /usr/local/include
+)
 
 # Create a variable USE_MYMATH using option and set default to ON
 option(USE_MYMATH "Use tutorial provided math implementation" ON)
@@ -49,6 +53,6 @@ if (TARGET SqrtLibrary)
 endif()
 
 # Install libraries to the lib directory
-install(TARGETS ${installable_libs} DESTINATION lib)
+install(TARGETS ${installable_libs} EXPORT MathFunctionsTargets DESTINATION lib)
 # Install header file to the include directory
 install(FILES MathFunctions.h DESTINATION include)

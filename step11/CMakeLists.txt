@@ -73,3 +73,34 @@ set(CPACK_PACKAGE_VERSION_MINOR "${Tutorial_VERSION_MINOR}")
 set(CPACK_GENERATOR "TGZ")
 set(CPACK_SOURCE_GENERATOR "TGZ")
 include(CPack)
+
+# Install the configuration targets
+install(EXPORT MathFunctionsTargets FILE MathFunctionTargets.cmake DESTINATION lib/cmake/MathFunctions)
+
+include(CMakePackageConfigHelpers)
+# Generate the config file that includes the exports. Creates "${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfig.cmake"
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+  "${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfig.cmake"
+  INSTALL_DESTINATION "lib/cmake/MathFunctions"
+  NO_SET_AND_CHECK_MACRO
+  NO_CHECK_REQUIRED_COMPONENTS_MACRO
+)
+
+# Writes a file used by find_package() documenting the version and compatibility of the desired package
+write_basic_package_version_file(
+  "${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfigVersion.cmake"
+  VERSION "${Tutorial_VERSION_MAJOR}.${Tutorial_VERSION_MINOR}"
+  COMPATIBILITY AnyNewerVersion
+)
+
+# Install both generated files
+install(FILES
+  ${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfig.cmake
+  ${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsConfigVersion.cmake
+  DESTINATION lib/cmake/MathFunctions
+)
+
+# Allow the project to also be used from a build directory. Generates a MathFunctionsTargets.cmake, allowing
+# the configured MathFunctionsConfig.cmake in the build directory to be used by other projects, without
+# needing it to be installed
+export(EXPORT MathFunctionsTargets FILE "${CMAKE_CURRENT_BINARY_DIR}/MathFunctionsTargets.cmake")
