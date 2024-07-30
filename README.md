@@ -31,6 +31,22 @@ These are some notes relevant for specific steps. Some notes may also apply to t
 1. cd into the `step9_build` directory and build the project as usual. Then run `cpack` to build a binary distribution.
 2. Run the installer in the build directory, then run the installed executable and verify it works
 
+### step12
+
+To generate debug and release builds
+
+1. cd into the step12 directory
+2. `cd debug`
+3. `cmake -DCMAKE_BUILD_TYPE=Debug ..`
+4. `cmake --build .`
+5. `cd ../release`
+6. `cmake -DCMAKE_BUILD_TYPE=Release ..`
+7. `cmake --build .`
+
+To generate installers for both debug and release configurations
+
+1. from the step12 directory, run `cpack --config MultiCPackConfig.cmake`
+
 ## Misc notes
 
 1. The tutorial itself is quite poorly maintained, with some references to removing code that we never added in the first place. Seems like the tutorial has been updated over time, but not consistently

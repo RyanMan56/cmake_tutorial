@@ -46,6 +46,10 @@ target_link_libraries(MathFunctions PUBLIC tutorial_compiler_flags)
 # building on windows (used in MathFunctions.h)
 target_compile_definitions(MathFunctions PRIVATE "EXPORTING_MYMATH")
 
+# Setup version numbering
+set_property(TARGET MathFunctions PROPERTY VERSION "1.0.0")
+set_property(TARGET MathFunctions PROPERTY SOVERSION "1")
+
 # Set installable_libs to the libraries we want
 set(installable_libs MathFunctions tutorial_compiler_flags)
 if (TARGET SqrtLibrary)
